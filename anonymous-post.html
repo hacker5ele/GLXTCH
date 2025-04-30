@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GLXTCH - The System Was Never Safe</title>
+  <link rel="stylesheet" href="post.css" />
+
+
+</head>
+<body>
+  <div class="container">
+    <h1>Staying Anonymous online</h1>
+    <p>Making yourself anonymous is a key part of ethical hacking. In this post, I’ll show you how I used Tor and Proxychains to hide my identity while browsing and testing. I’ll also share what worked, what didn’t, and what I learned along the way. 🧅🕵️</p>
+
+    <h2>🛠️ What You’ll Need</h2>
+    <ul>
+      <li>Tor & Proxychains installed</li>
+      <li>Correct Commands</li>
+      <li>VPN config file</li>
+      <li>Some basic terminal skills</li>
+    </ul>
+
+    <h2>💡  Step-by-Step Commands </h2>
+    <ol>
+      <li>Update & install Tor <br>
+        <code class="copy-snippet">sudo apt update && sudo apt install tor -y</code></li>
+      <li>Install Proxychains <br>
+        <code class="copy-snippet">sudo apt install proxychains</code></li>
+      <li>Start the Tor service <br>
+        <code class="copy-snippet">sudo service tor start</code></li>
+      <li>Configure Proxychains <br>
+        <code class="copy-snippet">sudo nano /etc/proxychains.conf</code> <br>
+        Find the existing socks4 line and replace/add: <br>
+        <code class="copy-snippet">socks4 127.0.0.1 9050</code>
+      </li>
+      <li>Test if it works <br>
+        <code class="copy-snippet">proxychains curl https://check.torproject.org/</code><br>
+        <code class="copy-snippet">proxychains firefox https://check.torproject.org/</code>
+      </li>
+      <li>Use a VPN (optional but adds more privacy) <br>
+        <code class="copy-snippet">sudo openvpn --config /path/to/your/vpn-config-file.ovpn</code></li>
+      <li>Encrypt DNS with DNSCrypt <br>
+        <code class="copy-snippet">sudo apt install dnscrypt-proxy</code><br>
+        <code class="copy-snippet">sudo systemctl start dnscrypt-proxy</code><br>
+        <code class="copy-snippet">sudo systemctl enable dnscrypt-proxy</code>
+      </li>
+      <li>(Optional) Add another layer with I2P <br>
+        <code class="copy-snippet">sudo apt install i2p</code></li>
+      <li>🎉 And that's it — you're officially anonymous online.</li>
+    </ol>
+
+    <h2>🐞 Troubleshooting</h2>
+    <ul>
+      <li>Tor not starting? Try: <br>
+        <code class="copy-snippet">sudo systemctl restart tor</code></li>
+      <li>Firefox not launching? Make sure it's installed or try another browser.</li>
+      <li>VPN not working? Double-check the .ovpn file path.</li>
+    </ul>
+
+    <h2>📚 What I Learned</h2>
+    <ul>
+      <li>How anonymity works online and how many layers it actually takes to stay hidden.</li>
+      <li>The importance of configuring tools right, like editing the Proxychains config or choosing the correct socks version.</li>
+      <li>That privacy tools need to be combined — Tor alone isn’t enough, but with VPN, DNS encryption, and I2P, it’s much stronger.</li>
+      <li>Troubleshooting is part of the process — nothing worked immediately, but figuring it out helped me understand Linux and network settings better.</li>
+      <li>Being anonymous isn’t just one click — it's a full setup, and now I know how to do it.</li>
+    </ul>
+
+    <h2>🔚 Conclusion</h2>
+    <p>
+      By setting up Tor, Proxychains, a VPN, and encrypting my DNS, I successfully created a more anonymous browsing environment. The process taught me how various privacy tools work together to keep my identity hidden online. While there were a few hiccups along the way, like troubleshooting configurations and commands, it was rewarding to see it all come together in the end. Remember, maintaining online anonymity is an ongoing process, and these tools are just a start in ensuring your privacy. Stay safe and always keep learning! 🛡️💻
+    </p>
+
+    <footer class="post-footer">
+      <p>🧑‍💻 Written by Shadowglitch | Stay curious, stay ethical.</p>
+      <a href="file:///C:/Users/eleon/Documents/GitHub/blj2024--ele-vyn/FerienProjekte/GLXTCH/blog.html" class="back-link">← Back to all posts</a>
+    </footer>
+  </div>
+
+  <script>
+    document.querySelectorAll('.copy-snippet').forEach(el => {
+      el.addEventListener('click', () => {
+        navigator.clipboard.writeText(el.innerText)
+          .then(() => {
+            el.style.backgroundColor = '#0f0';
+            setTimeout(() => {
+              el.style.backgroundColor = '';
+            }, 500);
+          })
+          .catch(() => alert("❌ Copy failed"));
+      });
+    });
+  </script>
+</body>
+</html>

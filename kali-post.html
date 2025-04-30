@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GLXTCH - The System Was Never Safe</title>
+  <link rel="stylesheet" href="post.css" />
+
+  
+</head>
+<body>
+  <div class="container">
+    <h1>Install Kali Linux</h1>
+    <p>Kali Linux is a popular OS for ethical hacking and cybersecurity. In this post, I'll show you how I installed it step by step, what tools I used, and what I learned from it.</p>
+
+    <h2>🛠️ What You’ll Need</h2>
+    <ul>
+      <li>Kali ISO from the official site</li>
+      <li>VirtualBox, VMware, Hyper-V Manager</li>
+      <li>Some basic terminal knowledge</li>
+    </ul>
+
+    <h2>💡 Installation Steps</h2>
+    <ol>
+      <li>Download the Kali Linux ISO</li>
+      <li>Create a new virtual machine in for example Hyper-V Manager</li>
+      <li>Mount the ISO and boot into the installer</li>
+      <li>Follow the setup (language, keyboard, disk) and mostly agree everything</li>
+      <li>Wait for it to finish and boot in 🎉</li>
+    </ol>
+
+    <h2>🐞 Troubleshooting</h2>
+    <p>If you run into issues (like network errors or install hangs), check your VM settings — especially networking and memory. Also make sure you install it properly and install the correct one, otherwise it's going to get problematic.</p>
+
+    <h2>🔧 After Setup</h2>
+    <p>Once installed, run <code class="copy-snippet">sudo apt update && sudo apt upgrade</code> to get the latest updates. Then install your tools or wordlists. The tools are mostly not so necessary since Kali Linux has a LOT of them preinstalled.</p>
+
+    <h2>📚 What I Learned</h2>
+    <ul>
+      <li>How to install a Linux distro using a virtual machine from scratch.</li>
+      <li>The difference between virtualization tools like Hyper-V, VirtualBox, and VMware.</li>
+      <li>That Kali Linux already includes most of the tools, so you don’t always need to install extra stuff.</li>
+      <li>How to troubleshoot basic VM issues like networking, ISO errors, or slow installs.</li>
+      <li>The importance of keeping your system updated with <code class="copy-snippet">sudo apt update && sudo apt upgrade</code>.</li>
+    </ul>
+
+    <h2>✅ Conclusion</h2>
+    <p>
+      Installing Kali Linux was my first real step into the ethical hacking world. It showed me how powerful a properly set-up system can be, and how important it is to understand the basics before diving deeper. Now that it's ready, I can finally start learning and testing tools in a safe environment. Let's go! 🚀
+    </p>
+
+    <footer class="post-footer">
+      <p>🧑‍💻 Written by Shadowglitch | Stay curious, stay ethical.</p>
+      <a href="file:///C:/Users/eleon/Documents/GitHub/blj2024--ele-vyn/FerienProjekte/GLXTCH/blog.html" class="back-link">← Back to all posts</a>
+    </footer>
+  </div>
+
+  <script>
+    document.querySelectorAll('.copy-snippet').forEach(el => {
+      el.addEventListener('click', () => {
+        navigator.clipboard.writeText(el.innerText)
+          .then(() => {
+            el.style.backgroundColor = '#0f0';
+            setTimeout(() => {
+              el.style.backgroundColor = '';
+            }, 500);
+          })
+          .catch(() => alert("❌ Copy failed"));
+      });
+    });
+  </script>
+</body>
+</html>

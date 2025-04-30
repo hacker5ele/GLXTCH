@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GLXTCH - The System Was Never Safe</title>
+  <link rel="stylesheet" href="post.css" />
+
+</head>
+<body>
+  <div class="container">
+    <h1>🔐 Password Attack with Hashcat</h1>
+    <p>One of the most intense but interesting things I tried was cracking passwords using <strong>Hashcat</strong>. In this post, I’ll walk you through my process of setting it up, experimenting with hashes, and finally managing to crack a password. This one took time, patience, and a bunch of trial and error! 🧠💻</p>
+
+    <h2>🛠️ What You’ll Need</h2>
+    <ul>
+      <li>A Linux-based system (Kali Linux preferred)</li>
+      <li>Hashcat installed (<code class="copy-snippet">sudo apt install hashcat</code>)</li>
+      <li>Access to <code>/etc/passwd</code> and <code>/etc/shadow</code></li>
+      <li>Rockyou wordlist: <code class="copy-snippet">sudo apt install wordlists && gunzip /usr/share/wordlists/rockyou.txt.gz</code></li>
+      <li>Optional: Create your own wordlist</li>
+      <li>SSH access if working remotely: <code class="copy-snippet">sudo apt install ssh</code></li>
+    </ul>
+
+    <h2>💡 Step-by-Step Process</h2>
+    <ol>
+      <li>Update your system and install Hashcat: <code class="copy-snippet">sudo apt update && sudo apt install hashcat</code></li>
+      <li>Check Hashcat version: <code class="copy-snippet">hashcat -I</code></li>
+      <li>Extract hashes from <code>/etc/shadow</code> and <code>/etc/passwd</code></li>
+      <li>Combine them into a new file like <code class="copy-snippet">hash.txt</code></li>
+      <li>Try cracking with: <code class="copy-snippet">hashcat -m 1800 -a 0 hash.txt /usr/share/wordlists/rockyou.txt --force -O</code></li>
+      <li>If no success, create a user: <code class="copy-snippet">sudo useradd hashuser</code> & then <code class="copy-snippet">sudo passwd hashuser</code></li>
+      <li>Get the hash: <code class="copy-snippet">sudo cat /etc/shadow | grep 'hashuser' | cut -d ':' -f2</code></li>
+      <li>If the hash format starts with <code class="copy-snippet">y</code> instead of <code class="copy-snippet">6</code>, it means the encryption method is wrong. Switch to SHA512 by updating your system password settings.</li>
+      <li>Make a new user again. Check for the <code class="copy-snippet">$6$</code> format.</li>
+      <li>Set up SSH if needed: <code class="copy-snippet">sudo apt install ssh</code> → <code class="copy-snippet">ssh username@ip</code></li>
+      <li>Create a file on the target VM and paste the correct hash inside <code class="copy-snippet">hash.txt</code></li>
+      <li>If rockyou.txt doesn’t work, create <code class="copy-snippet">customlist.txt</code> with known passwords including the correct one</li>
+      <li>Crack again: <code class="copy-snippet">hashcat -m 1800 -a 0 hash.txt customlist.txt --force -O --potfile-disable</code></li>
+    </ol>
+
+    <h2>🐞 Troubleshooting</h2>
+    <ul>
+      <li>Hashes not working? Double-check format — needs to start with <code class="copy-snippet">$6$</code> for SHA512</li>
+      <li>SSH failing? Make sure SSH is installed and the service is running</li>
+      <li>Hashcat not cracking? Try a different wordlist or make your own</li>
+      <li>Running same command twice? Add <code class="copy-snippet">--potfile-disable</code> to force it</li>
+    </ul>
+
+    <h2>📘 What I Learned</h2>
+    <p>This challenge taught me a lot about password storage formats (like SHA512), how Linux stores passwords, and how tricky cracking can be when hashes aren’t aligned with your tools. I also learned that persistence pays off — you won’t always succeed on the first try, but there’s always a way forward if you’re patient and creative. 🔍💪</p>
+
+    <h2>✅ Conclusion</h2>
+    <p>Successfully cracking a password with Hashcat was a big win. From creating users and capturing hashes to building a custom wordlist and solving encryption format issues — it was a long but rewarding journey. These skills are a major part of real-world ethical hacking. Keep exploring, keep learning, and stay ethical! 🧑‍💻💚</p>
+
+    <footer class="post-footer">
+      <p>🧑‍💻 Written by Shadowglitch | Stay curious, stay ethical.</p>
+      <a href="file:///C:/Users/eleon/Documents/GitHub/blj2024--ele-vyn/FerienProjekte/GLXTCH/blog.html" class="back-link">← Back to all posts</a>
+    </footer>
+  </div>
+
+  <script>
+    document.querySelectorAll('.copy-snippet').forEach(el => {
+      el.addEventListener('click', () => {
+        navigator.clipboard.writeText(el.innerText)
+          .then(() => {
+            el.style.backgroundColor = '#0f0';
+            setTimeout(() => {
+              el.style.backgroundColor = '';
+            }, 400);
+          })
+          .catch(() => alert("❌ Copy failed"));
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GLXTCH - The System Was Never Safe</title>
+  <link rel="stylesheet" href="post.css" />
+
+</head>
+<body>
+  <div class="container">
+    <h1>Scanning Networks with Nmap</h1>
+    <p>Network scanning is a crucial skill in cybersecurity. In this post, I'll walk you through how I scanned a network using Nmap to gather information about open ports and services. I'll explain the steps, what tools I used, and share what I learned along the way. 🌐🔍</p>
+
+    <h2>🛠️ What You’ll Need</h2>
+    <ul>
+      <li>A Linux-based system (any Debian-based distro like Ubuntu, Kali, etc.)</li>
+      <li>Internet connection and access to the target system's IP</li>
+      <li>Basic terminal knowledge</li>
+      <li>Nmap installed (use <code class="copy-snippet">sudo apt install nmap</code> to install it, in case not preinstalled)</li>
+    </ul>
+
+    <h2>💡 Installation Steps</h2>
+    <ol>
+      <li>First, make sure you have Nmap installed. If not, run  
+        <code class="copy-snippet">sudo apt update && sudo apt install nmap</code>
+      </li>
+      <li>Scan a target IP address:  
+        <code class="copy-snippet">nmap -Pn "IP_ADDRESS"</code>
+      </li>
+      <li>For a detailed scan:  
+        <code class="copy-snippet">nmap -A "IP_ADDRESS"</code>
+      </li>
+    </ol>
+
+    <h2>🐞 Troubleshooting</h2>
+    <p>If you run into issues while scanning, here are some common troubleshooting tips:</p>
+    <ul>
+      <li>If Nmap returns nothing, make sure the target is reachable and online. The  
+        <code class="copy-snippet">-Pn</code> flag disables host discovery.
+      </li>
+      <li>For "permission denied" errors, use  
+        <code class="copy-snippet">sudo</code>
+      </li>
+      <li>To scan only specific ports and speed things up:  
+        <code class="copy-snippet">nmap -p 80,443 "IP_ADDRESS"</code>
+      </li>
+    </ul>
+
+    <h2>💡 What I've Learned</h2>
+    <p>Scanning networks with Nmap taught me the basics of discovering open ports and services running on a remote system. I learned how to use flags like <code class="copy-snippet">-Pn</code> to bypass host discovery and how to gather additional information using <code class="copy-snippet">-A</code> for a more comprehensive scan. Although the scan didn't yield a lot of useful information in this case, it was an important step in understanding how network scanning works.</p>
+
+    <h2>🔚 Conclusion</h2>
+    <p>In conclusion, using Nmap is a fundamental skill for network reconnaissance. Even though the scan didn’t provide much valuable data in my case, the process gave me a deeper understanding of network scanning and the types of information you can gather about a target system. Keep practicing and experimenting with different Nmap options to expand your skills. 🧑‍💻🔒</p>
+
+    <footer class="post-footer">
+      <p>🧑‍💻 Written by Shadowglitch | Stay curious, stay ethical.</p>
+      <a href="file:///C:/Users/eleon/Documents/GitHub/blj2024--ele-vyn/FerienProjekte/GLXTCH/blog.html" class="back-link">← Back to all posts</a>
+    </footer>
+  </div>
+
+  <script>
+    document.querySelectorAll('.copy-snippet').forEach(el => {
+      el.addEventListener('click', () => {
+        navigator.clipboard.writeText(el.innerText)
+          .then(() => {
+            el.style.backgroundColor = '#0f0';
+            setTimeout(() => {
+              el.style.backgroundColor = '';
+            }, 500);
+          })
+          .catch(() => alert("❌ Copy failed"));
+      });
+    });
+  </script>
+</body>
+</html>

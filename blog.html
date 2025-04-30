@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - GLXTCH</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+    <div class="sidebar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+    </div>
+
+
+    <div class="menu-icon" onclick="toggleSidebar()">
+        &#9776;
+    </div>
+
+ 
+    <div class="container">
+        <section class="blog">
+            <h2>📓 Blog</h2>
+          
+            <article class="post-box">
+                <h3> 🐉Install Kali Linux</h3>
+                <p class="date">April 29, 2025</p>
+                <p class="summary">
+                    🔎 Just installed Kali Linux in Hyper-V Manager and set it up for hacking practice. Learned how to configure the VM, install the OS, and update it to get started — now I’ve got a safe space to test tools and explore ethical hacking! 🐱‍💻
+                </p>
+                <p class="tags">#KaliLinux #HackingLab #VirtualMachine</p>
+                <a href="kali-post.html" class="read-more">[ Read More ]</a>
+              </article>
+            
+              <article class="post-box">
+                <h3>👤Making myself Anonymous</h3>
+                <p class="date">April 29, 2025</p>
+                <p class="summary">
+                    🕶️ I explored how to stay anonymous by using Tor with proxychains. After some setup and testing, I was able to route my traffic through the Tor network — now I can browse and test tools without exposing my real IP. 🌐🔒
+                </p>
+                <p class="tags">#Anonymity #Proxychains</p>
+                <a href="anonymous-post.html" class="read-more">[ Read More ]</a>
+              </article>
+
+              <article class="post-box">
+                <h3>🧅Tor Browser</h3>
+                <p class="date">April 30, 2025</p>
+                <p class="summary">
+                    🌍 I installed the Tor Browser, one of the most private browsers out there.🔐🧅
+                </p>
+                <p class="tags">#TorBrowser #Privacy #DarkWeb</p>
+                <a href="tor-post.html" class="read-more">[ Read More ]</a>
+              </article>
+
+              <article class="post-box">
+                <h3>🌐Scan Networks</h3>
+                <p class="date">April 30, 2025</p>
+                <p class="summary">
+                    🌐 I ran a simple network scan using Nmap with a target IP. While it didn’t uncover a lot of valuable details, it helped me get the basics down and understand how network scanning works. 🔍
+                </p>
+                <p class="tags">#Nmap #NetworkScanning</p>
+                <a href="networks-post.html" class="read-more">[ Read More ]</a>
+              </article>
+
+              <article class="post-box">
+                <h3>🔐Password Attack</h3>
+                <p class="date">April 30, 2025</p>
+                <p class="summary">
+                    🔓 I tackled a password attack using Hashcat. After dealing with some format issues and configuring the right encryption method, I managed to crack a password by using a custom wordlist. The process took some time, but it was a great learning experience! 🧠💻
+                </p>
+                <p class="tags">#Hashcat #BruteForce #CrackingPasswords</p>
+                <a href="passAttack-post.html" class="read-more">[ Read More ]</a>
+              </article>
+          
+          </section>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+
+      
+        window.onclick = function(event) {
+            if (!event.target.matches('.sidebar, .sidebar *') && !event.target.matches('.menu-icon')) {
+                document.querySelector('.sidebar').classList.remove('open');
+            }
+        };
+    </script>
+       <footer class="footer">
+        <p>[ status: learning ] | [ trace: /home ] | [ © 2025 GLXTCH ]</p>
+      </footer>
+</body>
+</html>

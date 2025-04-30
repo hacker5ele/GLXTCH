@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLXTCH - The System Was Never Safe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Sidebar (Initially hidden) -->
+    <div class="sidebar">
+        <ul>
+            <li><a href="file:///C:/Users/eleon/Documents/GitHub/blj2024--ele-vyn/FerienProjekte/GLXTCH/index.html">Home</a></li>
+            <li><a href="file:///C:/Users/eleon/Documents/GitHub/blj2024--ele-vyn/FerienProjekte/GLXTCH/about.html">About</a></li>
+            <li><a href="file:///C:/Users/eleon/Documents/GitHub/blj2024--ele-vyn/FerienProjekte/GLXTCH/blog.html">Blog</a></li>
+        </ul>
+    </div>
+
+    <!-- Menu icon to toggle the sidebar -->
+    <div class="menu-icon" onclick="toggleSidebar()">
+        &#9776;
+    </div>
+
+    <!-- Main content -->
+    <div class="container">
+
+        <!-- GLXCH logo with glitch effect -->
+        <div class="logo">
+            <h1>GLXTCH</h1>
+        </div>
+        <div class="slogan">
+            <p>The System Was Never Safe...</p>
+        </div>
+      
+        <div class="intro">
+        <p>
+            Hi and Welcome to GLXTCH. GLXTCH is a Website where I share what I have learned. This also a little Project of mine for work. 
+            I have gotten the idea to do it because of my last Project where I was learning how to Hack. More about this Web is found in About.
+        </p>
+        </div>
+
+
+
+        <section class="learning">
+            <h2>📚 My Blog Posts</h2>
+            <ul>
+              <li><a class="read-more" href="kali-post.html">🛠️ Installing Kali Linux</a></li>
+              <li><a class="read-more" href="anonymous-post.html"> 🕵️‍♂️Making myself Anonymous</a></li>
+              <li><a class="read-more" href="tor-post.html">🌐 Tor Browser</a></li>
+              <li><a class="read-more" href="networks-post.html">📡 Scan Networks</a></li>
+              <li><a class="read-more" href="passAttack-post.html">🔓 Password Attack</a></li>
+            </ul>
+        <br> <br>
+            <h2>🧠 This Is What I'm Learning</h2>
+            <ul>
+              <li>🕵️‍♂️Penetration Testing</li>
+              <li>💣Exploitation</li>
+              <li>🔐Cryptography</li>
+              <li>🦠Malware Analysis</li>
+            </ul>
+          </section>
+        
+    </div>
+
+
+    <script>
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+
+        // Close sidebar if clicked outside
+        window.onclick = function(event) {
+            if (!event.target.matches('.sidebar, .sidebar *') && !event.target.matches('.menu-icon')) {
+                document.querySelector('.sidebar').classList.remove('open');
+            }
+        };
+    </script>
+    <footer class="footer">
+        <p>[ status: learning ] | [ trace: /home ] | [ © 2025 GLXTCH ]</p>
+      </footer>
+      
+</body>
+</html>

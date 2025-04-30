@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - GLXTCH</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+    </div>
+
+    <!-- Menu icon to toggle the sidebar -->
+    <div class="menu-icon" onclick="toggleSidebar()">
+        &#9776;
+    </div>
+
+    <!-- Main content -->
+    <div class="container">
+        <div class="about">
+            <h2>About GLXTCH</h2>
+        </div>
+        <section class="about-section">
+            <h2 class="glitch-title">👩‍💻 Who's Behind It?</h2>
+            <p class="about-text">
+                I go by many names, but here — you can call me Shadowglitch.<br><br>
+                I'm not a pro. Not yet. Just a curious mind exploring the edges of the digital world, learning how systems break — and how to understand them better.<br><br>
+                This site is a simple project that I thought of doing.<br><br>
+                I believe knowledge should be free, the system was never safe, and curiosity is never a crime.  
+            </p>
+            <br>
+            <h2 class="glitch-title">Why this Project?</h2>
+            <p class="about-text">
+                GLXTCH started when I first got into ethical hacking. What began as a personal project has turned into my space to experiment,
+                 learn, and share what I find. It’s a continuation of my last project, where I learned the basics of hacking. 
+                Now, I’m documenting everything here to keep track of my progress and share what I’ve learned with others who are interested.
+            </p>
+            <br>
+            <h2 class="glitch-title">Special Thanks</h2>
+            <p class="about-text">
+                I'd also like to say a Thanks to someone who's helped me on my Hacking Journey. Even when ChatGPT didn't know how to help me he was able to. Thank you, I appreciate it.
+                </p>
+          </section>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+
+        // Close sidebar if clicked outside
+        window.onclick = function(event) {
+            if (!event.target.matches('.sidebar, .sidebar *') && !event.target.matches('.menu-icon')) {
+                document.querySelector('.sidebar').classList.remove('open');
+            }
+        };
+    </script>
+       <footer class="footer">
+        <p>[ status: learning ] | [ trace: /home ] | [ © 2025 GLXTCH ]</p>
+      </footer>
+</body>
+</html>

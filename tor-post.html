@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GLXTCH - The System Was Never Safe</title>
+  <link rel="stylesheet" href="post.css" />
+
+
+</head>
+<body>
+  <div class="container">
+    <h1>Tor Browser</h1>
+    <p>Tor Browser is one of the most popular tools for achieving online privacy and anonymity. In this post, I will walk you through the steps to install and use Tor Browser effectively, with a focus on keeping your browsing activity private. 🌐🧅
+      Quick Fact: It's one of the most private Browsers in the world but also one of the most dangerous ones, since you can use it for bad deeds. But I'm telling you, don't ever use it for bad.
+    </p>
+
+    <h2>🛠️ What You’ll Need</h2>
+    <ul>
+      <li>A Linux-based system (any Debian-based distro like Ubuntu, Kali, etc.)</li>
+      <li>Internet connection</li>
+      <li>Basic terminal knowledge</li>
+    </ul>
+
+    <h2>💡 Installation Steps</h2>
+    <ol>
+      <li>Update your package list:  
+        <code class="copy-snippet">sudo apt update</code>
+      </li>
+      <li>Install the Tor Browser Launcher:  
+        <code class="copy-snippet">sudo apt install torbrowser-launcher</code>
+      </li>
+      <li>Run the Tor Browser Launcher to start the installation:  
+        <code class="copy-snippet">torbrowser-launcher</code>
+      </li>
+      <li>Follow the on-screen instructions to complete the installation and set up the Tor Browser.</li>
+      <li>Launch Tor Browser again:  
+        <code class="copy-snippet">torbrowser-launcher</code>
+        or use your app menu.
+      </li>
+    </ol>
+
+    <h2>🐞 Troubleshooting</h2>
+    <p>If you encounter any issues during installation, here are a few things to check:</p>
+    <ul>
+      <li>If the installation doesn't start, check your internet and run  
+        <code class="copy-snippet">sudo apt update</code> again.
+      </li>
+      <li>If it won’t launch, try reinstalling with  
+        <code class="copy-snippet">sudo apt reinstall torbrowser-launcher</code>
+      </li>
+      <li>If Tor can’t connect, make sure your firewall allows it and your config is correct.</li>
+    </ul>
+
+    <h2>💡 What I've Learned</h2>
+    <p>Setting up Tor Browser gave me valuable insight into how online privacy works and the steps needed to ensure anonymity. By using Tor, Proxychains, and VPNs, I was able to effectively hide my IP and encrypt my traffic. I also learned how to troubleshoot common issues, like network problems and configuration errors, which can occur during the setup process.</p>
+
+    <h2>🔚 Conclusion</h2>
+    <p>In conclusion, installing and using Tor Browser is a great first step towards enhancing your online privacy and anonymity. While there are many other tools and methods to explore, Tor provides a solid foundation for protecting your identity when browsing the web. Make sure to always stay informed and use additional privacy tools for maximum security. 🛡️💻</p>
+
+    <footer class="post-footer">
+      <p>🧑‍💻 Written by Shadowglitch | Stay curious, stay ethical.</p>
+      <a href="file:///C:/Users/eleon/Documents/GitHub/blj2024--ele-vyn/FerienProjekte/GLXTCH/blog.html" class="back-link">← Back to all posts</a>
+    </footer>
+  </div>
+
+  <script>
+    document.querySelectorAll('.copy-snippet').forEach(el => {
+      el.addEventListener('click', () => {
+        navigator.clipboard.writeText(el.innerText)
+          .then(() => {
+            el.style.backgroundColor = '#0f0';
+            setTimeout(() => {
+              el.style.backgroundColor = '';
+            }, 500);
+          })
+          .catch(() => alert("❌ Copy failed"));
+      });
+    });
+  </script>
+</body>
+</html>
